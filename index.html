@@ -141,14 +141,18 @@ body{font-family:'Montserrat',Arial,sans-serif}
 .section{display:none;height:100%;overflow:hidden;flex-direction:column}
 .section.active{display:flex}
 .chart-top-bar{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;flex-shrink:0}
-.chart-pair-label{font-size:13px;font-weight:800;color:#fff;display:flex;align-items:center;gap:6px}
+.chart-pair-label{font-size:13px;font-weight:800;color:#fff;display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 10px;border-radius:8px;background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.2);transition:all .2s}
+.chart-pair-label:active{background:rgba(0,210,255,.15);transform:scale(.97)}
 .chart-pair-label svg{width:16px;height:16px;color:#00d2ff;fill:none;stroke:currentColor;stroke-width:2}
 .chart-pair-label .otc-sm{font-size:8px;font-weight:600;color:rgba(255,255,255,.4);background:rgba(255,255,255,.06);padding:1px 5px;border-radius:3px}
+.chart-pair-label .chevron-sm{width:12px;height:12px;color:rgba(255,255,255,.5);fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;margin-left:2px}
+.chart-pair-label .tf-badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#00d2ff;background:rgba(0,210,255,.12);border:1px solid rgba(0,210,255,.25);padding:2px 6px;border-radius:4px;margin-left:4px}
 .chart-price-tag{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700}
-.chart-price-tag.up{color:#00BD2F}
-.chart-price-tag.down{color:#D64BD3}
+.chart-price-tag.up{color:#00cc33}
+.chart-price-tag.down{color:#c706c4}
+.chart-top-controls{display:flex;align-items:center;gap:6px}
 .signals-tabs-clean{display:flex;gap:4px;margin:0 10px 0;background:rgba(11,15,24,.6);padding:3px;border-radius:8px;border:1px solid rgba(255,255,255,.05);flex-shrink:0}
-.signals-tab-clean{flex:1;padding:7px 10px;border-radius:6px;border:none;background:transparent;color:rgba(255,255,255,.45);font-family:'Montserrat';font-size:10px;font-weight:700;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
+.signals-tab-clean{flex:1;padding:7px 10px;border-radius:6px;border:none;background:transparent;color:rgba(255,255,255,.45);font-family:'Montserrat';font-size:10px;font-weight:700;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
 .signals-tab-clean svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .signals-tab-clean.active{background:rgba(0,210,255,.12);color:#00d2ff;border:1px solid rgba(0,210,255,.2)}
 .signals-tab-clean:active{transform:scale(.97)}
@@ -156,44 +160,44 @@ body{font-family:'Montserrat',Arial,sans-serif}
 .signals-tab-content.active{display:flex}
 .signals-tab-scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding:8px 10px 16px}
 .signals-tab-scroll::-webkit-scrollbar{display:none}
-.chart-wrapper{flex:1;position:relative;min-height:0;background:#000;overflow:hidden}
+.chart-wrapper{flex:1;position:relative;min-height:0;background:#000;overflow:hidden;border-top:1px solid rgba(0,210,255,.25);border-right:1px solid rgba(0,210,255,.25)}
 #lwChartContainer{position:absolute;top:0;left:0;width:100%;height:100%}
 .card{background:rgba(11,15,24,.9);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:14px;margin-bottom:12px}
 .signals-summary-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
 .signals-summary-item{background:rgba(11,15,24,.6);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:10px 8px;text-align:center}
 .signals-summary-value{font-family:'Montserrat';font-size:16px;font-weight:800;line-height:1;margin-bottom:3px}
 .signals-summary-value.total{color:#00d2ff}
-.signals-summary-value.buy{color:#00BD2F}
-.signals-summary-value.sell{color:#D64BD3}
+.signals-summary-value.buy{color:#00cc33}
+.signals-summary-value.sell{color:#c706c4}
 .signals-summary-label{font-size:8px;color:rgba(255,255,255,.45);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
 .signal-row-clean{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(0,210,255,.06);border:1px solid rgba(0,210,255,.18);border-left:3px solid #00d2ff;border-radius:8px;margin-bottom:6px;position:relative;overflow:hidden}
 .signal-row-clean::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,210,255,.08),transparent 60%);pointer-events:none}
-.signal-row-clean.buy{border-left-color:#00BD2F}
-.signal-row-clean.sell{border-left-color:#D64BD3}
+.signal-row-clean.buy{border-left-color:#1dd2d8}
+.signal-row-clean.sell{border-left-color:#ff0033}
 .signal-time-clean{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#fff;min-width:42px;position:relative;z-index:1}
 .signal-duration-clean{font-size:9px;font-weight:700;color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;min-width:28px;text-align:center;position:relative;z-index:1}
 .signal-pair-clean{flex:1;font-size:12px;font-weight:700;color:#fff;letter-spacing:.3px;position:relative;z-index:1}
 .signal-pair-clean .otc-tag{font-size:8px;font-weight:600;color:rgba(255,255,255,.5);margin-left:3px;background:rgba(255,255,255,.06);padding:1px 4px;border-radius:3px}
 .signal-direction-clean{font-size:10px;font-weight:800;padding:5px 10px;border-radius:5px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;min-width:48px;text-align:center;position:relative;z-index:1}
-.signal-direction-clean.buy{background:rgba(0,189,47,.15);color:#00BD2F;border:1px solid rgba(0,189,47,.35)}
-.signal-direction-clean.sell{background:rgba(214,75,211,.15);color:#D64BD3;border:1px solid rgba(214,75,211,.35)}
+.signal-direction-clean.buy{background:rgba(0,204,51,.15);color:#00cc33;border:1px solid rgba(0,204,51,.35)}
+.signal-direction-clean.sell{background:rgba(199,6,196,.15);color:#c706c4;border:1px solid rgba(199,6,196,.35)}
 .signal-arrow-clean{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
 .signal-arrow-clean svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.signal-arrow-clean.buy{background:rgba(0,189,47,.15);color:#00BD2F}
-.signal-arrow-clean.sell{background:rgba(214,75,211,.15);color:#D64BD3}
+.signal-arrow-clean.buy{background:rgba(29,210,216,.15);color:#1dd2d8}
+.signal-arrow-clean.sell{background:rgba(255,0,51,.15);color:#ff0033}
 .results-stats-clean{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .result-stat-clean{background:rgba(11,15,24,.6);border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:12px 8px;text-align:center}
 .result-stat-clean-value{font-family:'Montserrat';font-size:20px;font-weight:800;margin-bottom:3px;line-height:1}
-.result-stat-clean-value.green{color:#00BD2F}
-.result-stat-clean-value.red{color:#D64BD3}
+.result-stat-clean-value.green{color:#00cc33}
+.result-stat-clean-value.red{color:#c706c4}
 .result-stat-clean-value.blue{color:#00d2ff}
 .result-stat-clean-label{font-size:8px;color:rgba(255,255,255,.45);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
 .result-row-clean{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(11,15,24,.5);border:1px solid rgba(255,255,255,.04);border-radius:8px;margin-bottom:6px}
-.result-row-clean.win{border-left:3px solid #00BD2F}
-.result-row-clean.loss{border-left:3px solid #D64BD3}
+.result-row-clean.win{border-left:3px solid #00cc33}
+.result-row-clean.loss{border-left:3px solid #c706c4}
 .result-badge-clean{font-size:9px;font-weight:800;padding:3px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
-.result-badge-clean.win{background:rgba(0,189,47,.12);color:#00BD2F;border:1px solid rgba(0,189,47,.25)}
-.result-badge-clean.loss{background:rgba(214,75,211,.12);color:#D64BD3;border:1px solid rgba(214,75,211,.25)}
+.result-badge-clean.win{background:rgba(0,204,51,.12);color:#00cc33;border:1px solid rgba(0,204,51,.25)}
+.result-badge-clean.loss{background:rgba(199,6,196,.12);color:#c706c4;border:1px solid rgba(199,6,196,.25)}
 .profile-main-card{background:rgba(11,15,24,.9);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px;margin-bottom:12px}
 .profile-main-row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
 .profile-avatar-section{display:flex;flex-direction:column;align-items:center;gap:8px;width:90px;flex-shrink:0}
@@ -264,6 +268,17 @@ body{font-family:'Montserrat',Arial,sans-serif}
 .support-footer-note-icon svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2}
 .support-footer-note-text{flex:1;font-size:10px;color:rgba(255,255,255,.6);line-height:1.5}
 .support-footer-note-text strong{color:#f0a500}
+.pair-list-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;margin-bottom:6px;cursor:pointer;transition:all .2s}
+.pair-list-item:active{background:rgba(0,210,255,.08);transform:scale(.98)}
+.pair-list-item.selected{background:rgba(0,210,255,.1);border-color:rgba(0,210,255,.3)}
+.pair-icon{width:36px;height:36px;border-radius:50%;background:rgba(0,210,255,.1);border:1px solid rgba(0,210,255,.25);display:flex;align-items:center;justify-content:center;color:#00d2ff;flex-shrink:0}
+.pair-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pair-info{flex:1;min-width:0}
+.pair-name{font-size:13px;font-weight:700;color:#fff}
+.pair-desc{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
+.pair-check{width:20px;height:20px;border-radius:50%;background:rgba(0,210,255,.15);border:1px solid rgba(0,210,255,.3);display:flex;align-items:center;justify-content:center;color:#00d2ff;flex-shrink:0;opacity:0;transition:opacity .2s}
+.pair-list-item.selected .pair-check{opacity:1}
+.pair-check svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 </style>
 </head>
 <body>
@@ -288,12 +303,25 @@ body{font-family:'Montserrat',Arial,sans-serif}
 <symbol id="icon-telegram" viewBox="0 0 24 24"><path d="M21.5 4.5L2.5 12l5 2 2 6 3-4 5 4z" fill="currentColor" stroke="none"/></symbol>
 <symbol id="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
 <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+<symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
 <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
 <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
 <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
 <symbol id="icon-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
 <symbol id="icon-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></symbol>
 <symbol id="icon-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+<symbol id="icon-currency" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+<symbol id="icon-candles" viewBox="0 0 24 24">
+<rect x="3" y="11" width="4" height="7" rx="0.5"/>
+<line x1="5" y1="7" x2="5" y2="11"/>
+<line x1="5" y1="18" x2="5" y2="21"/>
+<rect x="10" y="6" width="4" height="10" rx="0.5"/>
+<line x1="12" y1="3" x2="12" y2="6"/>
+<line x1="12" y1="16" x2="12" y2="20"/>
+<rect x="17" y="9" width="4" height="8" rx="0.5"/>
+<line x1="19" y1="5" x2="19" y2="9"/>
+<line x1="19" y1="17" x2="19" y2="21"/>
+</symbol>
 </defs></svg>
 <div id="logo-stage"><div class="logo-container"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00d2ff"/><stop offset="40%" style="stop-color:#0099cc"/><stop offset="100%" style="stop-color:#00f0ff"/></linearGradient><linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#09111f"/><stop offset="50%" style="stop-color:#000"/><stop offset="100%" style="stop-color:#070d18"/></linearGradient><clipPath id="hexagonClip"><path d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z"/></clipPath></defs><path id="splashHexFill" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="#000"/><g clip-path="url(#hexagonClip)"><rect class="bar bar-1" x="65" y="110" width="18" height="50" rx="2"/><rect class="bar bar-2" x="91" y="85" width="18" height="75" rx="2"/><rect class="bar bar-3" x="117" y="60" width="18" height="100" rx="2"/></g><path class="hexagon-border" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z"/><path class="hexagon" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z"/><path id="arrowPathRef" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="none"/><path class="arrow-border" d="M35 125 L75 90 L100 105 L165 45"/><path class="arrow" d="M35 125 L75 90 L100 105 L165 45"/><g id="arrowHeadGroup" style="opacity:0;transform:translate(0px,0px) rotate(0deg)"><path d="M-25 -15 L12 0 L-25 15 Z" fill="#000" stroke="#00d2ff" stroke-width="2" stroke-linejoin="round"/></g></svg></div></div>
 <div id="auth-page" class="page-wrapper"><div class="auth-container"><div class="auth-user-info"><div class="auth-avatar-wrap"><div class="avatar-logo-container"><svg class="avatar-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" overflow="visible"><defs><linearGradient id="cyanAuth" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00d2ff"/><stop offset="40%" style="stop-color:#0099cc"/><stop offset="100%" style="stop-color:#00f0ff"/></linearGradient><linearGradient id="blueAuth" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#09111f"/><stop offset="50%" style="stop-color:#000"/><stop offset="100%" style="stop-color:#070d18"/></linearGradient><clipPath id="hexClipAuth"><path d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z"/></clipPath></defs><path d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="#000"/><g clip-path="url(#hexClipAuth)"><rect class="av-bar" x="65" y="110" width="18" height="50" rx="2" fill="#000" stroke="url(#cyanAuth)" stroke-width="2"/><rect class="av-bar" x="91" y="85" width="18" height="75" rx="2" fill="#000" stroke="url(#cyanAuth)" stroke-width="2"/><rect class="av-bar" x="117" y="60" width="18" height="100" rx="2" fill="#000" stroke="url(#cyanAuth)" stroke-width="2"/></g><path class="av-hexagon-border" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="none" stroke="url(#cyanAuth)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="av-hexagon" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="none" stroke="url(#blueAuth)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="av-arrowPathRef" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="none"/><path class="av-arrow-border" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="url(#cyanAuth)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path class="av-arrow" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><g class="av-arrow-head" style="opacity:0;transform:translate(0px,0px) rotate(0deg)"><path d="M-25 -15 L12 0 L-25 15 Z" fill="#000" stroke="#00d2ff" stroke-width="2" stroke-linejoin="round"/></g></svg></div></div><div class="auth-info-text"><div class="auth-name">License Authentication</div><div class="auth-username">Enter your license key</div></div></div><div class="auth-login-info">Enter your license key to access QXchart and all trading tools.</div><div class="license-input-group"><input type="text" class="license-input" id="licenseKeyInput" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" autocomplete="off"></div><label class="auth-checkbox-container"><input type="checkbox" id="agreeTerms" onchange="toggleAuthBtn()"><span>I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</span></label><button class="auth-btn" id="authContinueBtn" onclick="enterPlatform()" disabled><svg viewBox="0 0 24 24"><use href="#icon-key"/></svg>Activate License</button><div class="auth-footer">Secure License Verification</div></div></div>
@@ -301,13 +329,24 @@ body{font-family:'Montserrat',Arial,sans-serif}
 <header class="app-header"><div class="header-left"><div class="user-avatar-lg"><div class="avatar-logo-container"><svg class="avatar-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" overflow="visible"><defs><linearGradient id="cyanHead" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00d2ff"/><stop offset="40%" style="stop-color:#0099cc"/><stop offset="100%" style="stop-color:#00f0ff"/></linearGradient><linearGradient id="blueHead" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#09111f"/><stop offset="50%" style="stop-color:#000"/><stop offset="100%" style="stop-color:#070d18"/></linearGradient><clipPath id="hexClipHead"><path d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z"/></clipPath></defs><path d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="#000"/><g clip-path="url(#hexClipHead)"><rect class="av-bar" x="65" y="110" width="18" height="50" rx="2" fill="#000" stroke="url(#cyanHead)" stroke-width="2"/><rect class="av-bar" x="91" y="85" width="18" height="75" rx="2" fill="#000" stroke="url(#cyanHead)" stroke-width="2"/><rect class="av-bar" x="117" y="60" width="18" height="100" rx="2" fill="#000" stroke="url(#cyanHead)" stroke-width="2"/></g><path class="av-hexagon-border" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="none" stroke="url(#cyanHead)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="av-hexagon" d="M100 15 L160 50 L160 120 L100 155 L40 120 L40 50 Z" fill="none" stroke="url(#blueHead)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="av-arrowPathRef" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="none"/><path class="av-arrow-border" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="url(#cyanHead)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path class="av-arrow" d="M35 125 L75 90 L100 105 L165 45" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><g class="av-arrow-head" style="opacity:0;transform:translate(0px,0px) rotate(0deg)"><path d="M-25 -15 L12 0 L-25 15 Z" fill="#000" stroke="#00d2ff" stroke-width="2" stroke-linejoin="round"/></g></svg></div></div><div class="user-details"><h4>QXchart</h4><p>Trading Platform</p></div></div><div class="header-right"><div class="icon-btn-lg" onclick="toggleSupportModal(true)"><svg><use href="#icon-headset"/></svg></div><div class="icon-btn-lg" onclick="openNotificationsPage()"><svg><use href="#icon-bell"/></svg><span class="bell-badge hidden" id="bellBadge">0</span></div></div></header>
 <div class="main-content">
 <div id="section-chart" class="section active">
-<div class="chart-top-bar"><div class="chart-pair-label"><svg viewBox="0 0 24 24"><use href="#icon-activity"/></svg>EUR/USD<span class="otc-sm">OTC</span></div><div class="chart-price-tag up" id="chartPriceDisplay">1.08542</div></div>
-<div class="signals-tabs-clean"><button class="signals-tab-clean active" onclick="switchChartTab('chart',this)"><svg><use href="#icon-activity"/></svg>Chart</button><button class="signals-tab-clean" onclick="switchChartTab('results',this)"><svg><use href="#icon-trophy"/></svg>Results</button></div>
+<div class="chart-top-bar">
+<div class="chart-pair-label" onclick="openPairModal()">
+<svg viewBox="0 0 24 24"><use href="#icon-currency"/></svg>
+<span id="currentPairName">EUR/USD</span>
+<span class="tf-badge">1M</span>
+<span class="otc-sm">OTC</span>
+<svg class="chevron-sm" viewBox="0 0 24 24"><use href="#icon-chevron-down"/></svg>
+</div>
+<div class="chart-top-controls">
+<div class="chart-price-tag up" id="chartPriceDisplay">1.08542</div>
+</div>
+</div>
+<div class="signals-tabs-clean"><button class="signals-tab-clean active" onclick="switchChartTab('chart',this)"><svg><use href="#icon-candles"/></svg>Chart</button><button class="signals-tab-clean" onclick="switchChartTab('results',this)"><svg><use href="#icon-trophy"/></svg>Results</button></div>
 <div class="signals-tab-content active" id="content-chart-tab"><div class="chart-wrapper"><div id="lwChartContainer"></div></div></div>
 <div class="signals-tab-content" id="content-results-tab"><div class="signals-tab-scroll"><div class="results-stats-clean"><div class="result-stat-clean"><div class="result-stat-clean-value green">11</div><div class="result-stat-clean-label">Wins</div></div><div class="result-stat-clean"><div class="result-stat-clean-value red">4</div><div class="result-stat-clean-label">Losses</div></div><div class="result-stat-clean"><div class="result-stat-clean-value blue">73%</div><div class="result-stat-clean-label">Win Rate</div></div></div><div class="card"><div id="chartResultsList"></div></div></div></div>
 </div>
 <div id="section-signals" class="section">
-<div class="chart-top-bar"><div class="chart-pair-label"><svg viewBox="0 0 24 24"><use href="#icon-signals"/></svg>Signals</div><div style="display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:#00BD2F;background:rgba(0,189,47,.1);border:1px solid rgba(0,189,47,.25);padding:4px 8px;border-radius:20px"><span style="width:5px;height:5px;border-radius:50%;background:#00BD2F;animation:blinkDot 1.5s infinite"></span>LIVE</div></div>
+<div class="chart-top-bar"><div class="chart-pair-label"><svg viewBox="0 0 24 24"><use href="#icon-signals"/></svg>Signals</div><div style="display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:#00cc33;background:rgba(0,204,51,.1);border:1px solid rgba(0,204,51,.25);padding:4px 8px;border-radius:20px"><span style="width:5px;height:5px;border-radius:50%;background:#00cc33;animation:blinkDot 1.5s infinite"></span>LIVE</div></div>
 <div class="signals-tabs-clean"><button class="signals-tab-clean active" onclick="switchSignalsTab('signals',this)"><svg><use href="#icon-lightning"/></svg>Signals</button><button class="signals-tab-clean" onclick="switchSignalsTab('results',this)"><svg><use href="#icon-trophy"/></svg>Results</button></div>
 <div class="signals-tab-content active" id="content-signals-tab"><div class="signals-tab-scroll"><div class="signals-summary-bar"><div class="signals-summary-item"><div class="signals-summary-value total" id="sigTotal">15</div><div class="signals-summary-label">Total</div></div><div class="signals-summary-item"><div class="signals-summary-value buy" id="sigBuy">5</div><div class="signals-summary-label">Buy</div></div><div class="signals-summary-item"><div class="signals-summary-value sell" id="sigSell">10</div><div class="signals-summary-label">Sell</div></div></div><div id="signalsListContainer"></div></div></div>
 <div class="signals-tab-content" id="content-signals-results-tab"><div class="signals-tab-scroll"><div class="results-stats-clean"><div class="result-stat-clean"><div class="result-stat-clean-value green">11</div><div class="result-stat-clean-label">Wins</div></div><div class="result-stat-clean"><div class="result-stat-clean-value red">4</div><div class="result-stat-clean-label">Losses</div></div><div class="result-stat-clean"><div class="result-stat-clean-value blue">73%</div><div class="result-stat-clean-label">Win Rate</div></div></div><div class="card"><div id="resultsListContainer"></div></div></div></div>
@@ -317,6 +356,13 @@ body{font-family:'Montserrat',Arial,sans-serif}
 </div>
 <div class="modal-overlay" id="supportOverlay" onclick="toggleSupportModal(false)"></div>
 <div class="modal-sheet" id="supportSheet"><div class="modal-header"><div class="modal-title"><svg><use href="#icon-headset"/></svg>Support</div><button class="modal-close" onclick="toggleSupportModal(false)">&times;</button></div><div class="support-hero"><div class="support-hero-logo"><svg viewBox="0 0 24 24"><use href="#icon-headset"/></svg></div><h3>QXchart Support</h3><p>Our expert team is ready to help you 24/7.</p><div class="support-status"><span class="support-status-dot"></span>Support team online now</div></div><div class="support-channels"><a href="https://t.me/qxzero1" target="_blank" class="support-channel primary"><div class="support-channel-avatar primary"><svg viewBox="0 0 24 24"><use href="#icon-telegram"/></svg></div><div class="support-channel-info"><div class="support-channel-name">@qxzero1 <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="support-channel-role">Lead Support • Fastest Response</div></div><div class="support-channel-arrow"><svg viewBox="0 0 24 24"><use href="#icon-chevron-right"/></svg></div></a><a href="https://t.me/qxterminal" target="_blank" class="support-channel"><div class="support-channel-avatar secondary"><svg viewBox="0 0 24 24"><use href="#icon-telegram"/></svg></div><div class="support-channel-info"><div class="support-channel-name">@qxterminal <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="support-channel-role">Official Channel • General Inquiries</div></div><div class="support-channel-arrow"><svg viewBox="0 0 24 24"><use href="#icon-chevron-right"/></svg></div></a></div><div class="support-footer-note"><div class="support-footer-note-icon"><svg viewBox="0 0 24 24"><use href="#icon-info"/></svg></div><div class="support-footer-note-text">Average response time: <strong>under 30 minutes</strong>. Include your <strong>License Key</strong> for faster assistance.</div></div></div>
+
+<div class="modal-overlay" id="pairOverlay" onclick="togglePairModal(false)"></div>
+<div class="modal-sheet" id="pairSheet">
+<div class="modal-header"><div class="modal-title"><svg><use href="#icon-currency"/></svg>Select Currency Pair</div><button class="modal-close" onclick="togglePairModal(false)">&times;</button></div>
+<div id="pairListContainer"></div>
+</div>
+
 <script>
 var pathRef=document.getElementById('arrowPathRef'),pathLine=document.querySelector('.arrow'),pathBorder=document.querySelector('.arrow-border'),arrowHeadGroup=document.getElementById('arrowHeadGroup');
 function startArrow(){if(!pathRef||!pathLine||!pathBorder||!arrowHeadGroup)return;var len=pathRef.getTotalLength();[pathLine,pathBorder].forEach(function(p){p.style.strokeDasharray=len;p.style.strokeDashoffset=len});arrowHeadGroup.style.opacity='0';arrowHeadGroup.style.transform='translate(0px,0px) rotate(0deg)';var dur=2000,startT=performance.now()+500;function tick(now){var elapsed=now-startT;if(elapsed<0){requestAnimationFrame(tick);return}var raw=Math.min(elapsed/dur,1),prog=1-Math.pow(1-raw,3),curLen=len*prog;pathLine.style.strokeDashoffset=len-curLen;pathBorder.style.strokeDashoffset=len-curLen;if(prog>=.95){var p1=pathRef.getPointAtLength(Math.max(0,curLen-4)),p2=pathRef.getPointAtLength(Math.min(len,curLen+4));var ang=Math.atan2(p2.y-p1.y,p2.x-p1.x)*(180/Math.PI),ep=pathRef.getPointAtLength(curLen);arrowHeadGroup.style.transform='translate('+ep.x+'px,'+ep.y+'px) rotate('+ang+'deg)';arrowHeadGroup.style.opacity=Math.min(1,(prog-.95)*20)}if(raw<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
@@ -345,7 +391,7 @@ document.getElementById('licenseKeyInput').addEventListener('input',toggleAuthBt
 function enterPlatform(){var l=document.getElementById('licenseKeyInput').value.trim();if(!l){QXAlert.show('error','Invalid License','Please enter a valid license key.');return}document.getElementById('authContinueBtn').disabled=true;userData.licenseKey=l;userData.points=25;userData.freeDays=0;userData.regDate=new Date().toLocaleDateString('en-GB');applyUserDataToUI();saveSession();document.getElementById('auth-page').classList.remove('visible');setTimeout(function(){document.getElementById('main-app').classList.add('visible');document.getElementById('bottomNav').classList.add('visible');updateUI();startAvatarLoops();renderSignalsList();renderResultsList();renderChartResults();setTimeout(initLWChart,300)},800)}
 function switchSection(name){document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});document.getElementById('section-'+name).classList.add('active');document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active')});var nav=document.getElementById('nav-'+name);if(nav)nav.classList.add('active');if(name==='chart'){fixChartAfterSwitch()}}
 function switchSignalsTab(tab,btn){var p=btn.closest('.section');p.querySelectorAll('.signals-tab-clean').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.signals-tab-content').forEach(function(c){c.classList.remove('active')});btn.classList.add('active');document.getElementById('content-'+tab+'-tab').classList.add('active')}
-function switchChartTab(tab,btn){var p=btn.closest('.section');p.querySelectorAll('.signals-tab-clean').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.signals-tab-content').forEach(function(c){c.classList.remove('active')});btn.classList.add('active');document.getElementById('content-'+tab+'-tab').classList.add('active');if(tab==='chart'){fixChartAfterSwitch()}}
+function switchChartTab(tab,btn){var p=btn.closest('.section');var tabs=p.querySelectorAll('.signals-tab-clean');var contents=p.querySelectorAll('.signals-tab-content');for(var i=0;i<tabs.length;i++){tabs[i].classList.remove('active');contents[i].classList.remove('active')}btn.classList.add('active');document.getElementById('content-'+tab+'-tab').classList.add('active');if(tab==='chart'){fixChartAfterSwitch()}}
 function fixChartAfterSwitch(){if(!lwChart)return;var container=document.getElementById('lwChartContainer');if(!container)return;requestAnimationFrame(function(){requestAnimationFrame(function(){var w=container.clientWidth,h=container.clientHeight;if(w>0&&h>0){lwChart.applyOptions({width:w,height:h,timeScale:{barSpacing:Math.floor((w-60)/8)}});if(candleSeries&&cachedMarkers){candleSeries.setMarkers(cachedMarkers)}}})})}
 var signalsData=[{time:'21:06',duration:'2M',pair:'USDNGN',direction:'sell'},{time:'21:14',duration:'2M',pair:'EURNZD',direction:'sell'},{time:'21:28',duration:'2M',pair:'USDPHP',direction:'sell'},{time:'21:55',duration:'2M',pair:'CADCHF',direction:'sell'},{time:'21:58',duration:'2M',pair:'NZDJPY',direction:'buy'},{time:'22:13',duration:'2M',pair:'AUDJPY',direction:'sell'},{time:'22:27',duration:'2M',pair:'GBPUSD',direction:'buy'},{time:'22:30',duration:'2M',pair:'NZDJPY',direction:'sell'},{time:'22:38',duration:'2M',pair:'USDNGN',direction:'buy'},{time:'22:41',duration:'2M',pair:'USDNGN',direction:'sell'},{time:'22:48',duration:'2M',pair:'NZDUSD',direction:'buy'},{time:'22:56',duration:'2M',pair:'GBPCHF',direction:'sell'},{time:'23:26',duration:'2M',pair:'AUDJPY',direction:'buy'},{time:'23:35',duration:'2M',pair:'USDDZD',direction:'sell'},{time:'23:42',duration:'2M',pair:'USDZAR',direction:'sell'}];
 var resultsData=[{time:'21:06',pair:'USDNGN',direction:'sell',result:'win'},{time:'21:14',pair:'EURNZD',direction:'sell',result:'win'},{time:'21:28',pair:'USDPHP',direction:'sell',result:'loss'},{time:'21:55',pair:'CADCHF',direction:'sell',result:'win'},{time:'21:58',pair:'NZDJPY',direction:'buy',result:'win'},{time:'22:13',pair:'AUDJPY',direction:'sell',result:'win'},{time:'22:27',pair:'GBPUSD',direction:'buy',result:'win'},{time:'22:30',pair:'NZDJPY',direction:'sell',result:'loss'},{time:'22:38',pair:'USDNGN',direction:'buy',result:'win'},{time:'22:41',pair:'USDNGN',direction:'sell',result:'win'},{time:'22:48',pair:'NZDUSD',direction:'buy',result:'win'},{time:'22:56',pair:'GBPCHF',direction:'sell',result:'loss'},{time:'23:26',pair:'AUDJPY',direction:'buy',result:'win'},{time:'23:35',pair:'USDDZD',direction:'sell',result:'loss'},{time:'23:42',pair:'USDZAR',direction:'sell',result:'win'}];
@@ -359,7 +405,29 @@ var SIGNAL_BUY_COLOR='#1dd2d8';
 var SIGNAL_SELL_COLOR='#ff0033';
 var FIXED_MARKER_SIZE = 1.2;
 
-function generateCandleData(count){var data=[],now=Math.floor(Date.now()/1000),interval=60,base=1.08+Math.random()*0.01;for(var i=count;i>0;i--){var time=now-i*interval,open=base,change=(Math.random()-0.48)*0.0015,close=open+change,high=Math.max(open,close)+Math.random()*0.0008,low=Math.min(open,close)-Math.random()*0.0008;data.push({time:time,open:+open.toFixed(5),high:+high.toFixed(5),low:+low.toFixed(5),close:+close.toFixed(5)});base=close}lastClose=base;return data}
+var availablePairs=[
+{name:'EUR/USD',desc:'Euro / US Dollar',base:1.08542},
+{name:'GBP/USD',desc:'British Pound / US Dollar',base:1.26320},
+{name:'USD/JPY',desc:'US Dollar / Japanese Yen',base:149.820},
+{name:'AUD/USD',desc:'Australian Dollar / US Dollar',base:0.65430},
+{name:'USD/CAD',desc:'US Dollar / Canadian Dollar',base:1.35210},
+{name:'NZD/USD',desc:'New Zealand Dollar / US Dollar',base:0.60120},
+{name:'USD/CHF',desc:'US Dollar / Swiss Franc',base:0.88340},
+{name:'EUR/GBP',desc:'Euro / British Pound',base:0.85920},
+{name:'USD/NGN',desc:'US Dollar / Nigerian Naira',base:1540.50},
+{name:'USD/ZAR',desc:'US Dollar / South African Rand',base:18.7420}
+];
+var currentTimeframeValue='1M';
+var currentTimeframeSeconds=60;
+var currentPair='EUR/USD';
+var currentPairBase=1.08542;
+
+function openPairModal(){renderPairList();document.getElementById('pairOverlay').classList.add('visible');document.getElementById('pairSheet').classList.add('visible')}
+function togglePairModal(show){document.getElementById('pairOverlay').classList.toggle('visible',show);document.getElementById('pairSheet').classList.toggle('visible',show)}
+function renderPairList(){var c=document.getElementById('pairListContainer');if(!c)return;c.innerHTML='';availablePairs.forEach(function(p){var it=document.createElement('div');it.className='pair-list-item'+(p.name===currentPair?' selected':'');it.innerHTML='<div class="pair-icon"><svg viewBox="0 0 24 24"><use href="#icon-currency"/></svg></div><div class="pair-info"><div class="pair-name">'+p.name+'</div><div class="pair-desc">'+p.desc+'</div></div><div class="pair-check"><svg viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>';it.addEventListener('click',function(){selectPair(p.name,p.base);togglePairModal(false)});c.appendChild(it)})}
+function selectPair(name,base){currentPair=name;currentPairBase=base;document.getElementById('currentPairName').textContent=name;lastClose=base;updatePriceDisplay(lastClose,lastClose-0.0001);if(lwChart){lwChart.remove();lwChart=null;candleSeries=null;lineSeries=null;cachedMarkers=[];allCandleData=[];initLWChart()}}
+
+function generateCandleData(count){var data=[],now=Math.floor(Date.now()/1000),interval=currentTimeframeSeconds,base=currentPairBase;for(var i=count;i>0;i--){var time=now-i*interval,open=base,change=(Math.random()-0.48)*0.0015,close=open+change,high=Math.max(open,close)+Math.random()*0.0008,low=Math.min(open,close)-Math.random()*0.0008;data.push({time:time,open:+open.toFixed(5),high:+high.toFixed(5),low:+low.toFixed(5),close:+close.toFixed(5)});base=close}lastClose=base;return data}
 
 function generateMarkers(candles){
 var markers=[];
@@ -380,7 +448,7 @@ function initLWChart(){var container=document.getElementById('lwChartContainer')
 var w=container.clientWidth||360,h=container.clientHeight||400;
 var barSp=Math.floor((w-60)/8);
 lwChart=LightweightCharts.createChart(container,{width:w,height:h,layout:{background:{type:'solid',color:'#000000'},textColor:'rgba(0,210,255,0.5)',fontFamily:'JetBrains Mono, monospace',fontSize:9},grid:{vertLines:{color:'rgba(0,210,255,0.06)'},horzLines:{color:'rgba(0,210,255,0.06)'}},crosshair:{mode:LightweightCharts.CrosshairMode.Normal,vertLine:{color:'rgba(0,210,255,0.3)',width:1,style:2,labelBackgroundColor:'#00d2ff'},horzLine:{color:'rgba(0,210,255,0.3)',width:1,style:2,labelBackgroundColor:'#00d2ff'}},rightPriceScale:{visible:true,borderColor:'rgba(0,210,255,0.25)',scaleMargins:{top:0.05,bottom:0.05},entireTextOnly:false},timeScale:{visible:true,borderColor:'rgba(0,210,255,0.25)',timeVisible:true,secondsVisible:false,rightOffset:1,barSpacing:barSp,fixLeftEdge:false,fixRightEdge:false},handleScroll:{vertTouchDrag:false}});
-candleSeries=lwChart.addCandlestickSeries({upColor:'#00cc33',downColor:'#c706c4',borderUpColor:'#00BD2F',borderDownColor:'#D64BD3',wickUpColor:'#00BD2F',wickDownColor:'#D64BD3',priceFormat:{type:'price',precision:5,minMove:0.00001}});
+candleSeries=lwChart.addCandlestickSeries({upColor:'#00cc33',downColor:'#c706c4',borderUpColor:'#00cc33',borderDownColor:'#c706c4',wickUpColor:'#00cc33',wickDownColor:'#c706c4',priceFormat:{type:'price',precision:5,minMove:0.00001}});
 allCandleData=generateCandleData(120);
 candleSeries.setData(allCandleData);
 cachedMarkers=generateMarkers(allCandleData);
