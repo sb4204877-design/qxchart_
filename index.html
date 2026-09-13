@@ -268,17 +268,37 @@ body{font-family:'Montserrat',Arial,sans-serif}
 .support-footer-note-icon svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2}
 .support-footer-note-text{flex:1;font-size:10px;color:rgba(255,255,255,.6);line-height:1.5}
 .support-footer-note-text strong{color:#f0a500}
-.pair-list-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;margin-bottom:6px;cursor:pointer;transition:all .2s}
-.pair-list-item:active{background:rgba(0,210,255,.08);transform:scale(.98)}
-.pair-list-item.selected{background:rgba(0,210,255,.1);border-color:rgba(0,210,255,.3)}
-.pair-icon{width:36px;height:36px;border-radius:50%;background:rgba(0,210,255,.1);border:1px solid rgba(0,210,255,.25);display:flex;align-items:center;justify-content:center;color:#00d2ff;flex-shrink:0}
-.pair-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.pair-info{flex:1;min-width:0}
+.pair-modal-body{padding:0 16px 20px}
+.pair-search-box{position:relative;margin-bottom:14px}
+.pair-search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:rgba(255,255,255,.4);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.pair-search-input{width:100%;padding:11px 12px 11px 38px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:#fff;font-family:'Montserrat';font-size:12px;font-weight:600;outline:none;transition:all .2s}
+.pair-search-input:focus{border-color:rgba(0,210,255,.3);background:rgba(0,210,255,.05)}
+.pair-search-input::placeholder{color:rgba(255,255,255,.35)}
+.pair-category{margin-bottom:14px}
+.pair-category-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;padding-left:4px;display:flex;align-items:center;gap:6px}
+.pair-category-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
+.pair-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;margin-bottom:6px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.pair-item::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,210,255,.06),transparent 50%);opacity:0;transition:opacity .2s}
+.pair-item:active{transform:scale(.985)}
+.pair-item:active::before{opacity:1}
+.pair-item.selected{background:rgba(0,210,255,.08);border-color:rgba(0,210,255,.3)}
+.pair-item.selected::before{opacity:1}
+.pair-flag{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.5px}
+.pair-flag.major{background:linear-gradient(135deg,rgba(0,210,255,.15),rgba(0,210,255,.05));color:#00d2ff;border:1px solid rgba(0,210,255,.25)}
+.pair-flag.exotic{background:linear-gradient(135deg,rgba(240,165,0,.15),rgba(240,165,0,.05));color:#f0a500;border:1px solid rgba(240,165,0,.25)}
+.pair-info-col{flex:1;min-width:0}
+.pair-name-row{display:flex;align-items:center;gap:6px}
 .pair-name{font-size:13px;font-weight:700;color:#fff}
-.pair-desc{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
-.pair-check{width:20px;height:20px;border-radius:50%;background:rgba(0,210,255,.15);border:1px solid rgba(0,210,255,.3);display:flex;align-items:center;justify-content:center;color:#00d2ff;flex-shrink:0;opacity:0;transition:opacity .2s}
-.pair-list-item.selected .pair-check{opacity:1}
+.pair-otc-tag{font-size:8px;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);padding:1px 5px;border-radius:3px}
+.pair-desc{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px;font-weight:500}
+.pair-check{width:22px;height:22px;border-radius:50%;background:rgba(0,210,255,.15);border:1px solid rgba(0,210,255,.35);display:flex;align-items:center;justify-content:center;color:#00d2ff;flex-shrink:0;opacity:0;transform:scale(.7);transition:all .25s}
+.pair-item.selected .pair-check{opacity:1;transform:scale(1)}
 .pair-check svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.pair-empty{text-align:center;padding:40px 20px;color:rgba(255,255,255,.4)}
+.pair-empty-icon{width:60px;height:60px;border-radius:50%;background:rgba(0,210,255,.05);border:1px solid rgba(0,210,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(0,210,255,.4);margin:0 auto 12px}
+.pair-empty-icon svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6}
+.pair-empty h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.pair-empty p{font-size:11px;color:rgba(255,255,255,.4)}
 </style>
 </head>
 <body>
@@ -311,6 +331,7 @@ body{font-family:'Montserrat',Arial,sans-serif}
 <symbol id="icon-key" viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></symbol>
 <symbol id="icon-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
 <symbol id="icon-currency" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+<symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
 <symbol id="icon-candles" viewBox="0 0 24 24">
 <rect x="3" y="11" width="4" height="7" rx="0.5"/>
 <line x1="5" y1="7" x2="5" y2="11"/>
@@ -359,8 +380,14 @@ body{font-family:'Montserrat',Arial,sans-serif}
 
 <div class="modal-overlay" id="pairOverlay" onclick="togglePairModal(false)"></div>
 <div class="modal-sheet" id="pairSheet">
-<div class="modal-header"><div class="modal-title"><svg><use href="#icon-currency"/></svg>Select Currency Pair</div><button class="modal-close" onclick="togglePairModal(false)">&times;</button></div>
+<div class="modal-header"><div class="modal-title"><svg><use href="#icon-currency"/></svg>Select Asset</div><button class="modal-close" onclick="togglePairModal(false)">&times;</button></div>
+<div class="pair-modal-body">
+<div class="pair-search-box">
+<svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+<input type="text" class="pair-search-input" id="pairSearchInput" placeholder="Search currency pair..." oninput="filterPairs()">
+</div>
 <div id="pairListContainer"></div>
+</div>
 </div>
 
 <script>
@@ -406,26 +433,62 @@ var SIGNAL_SELL_COLOR='#ff0033';
 var FIXED_MARKER_SIZE = 1.2;
 
 var availablePairs=[
-{name:'EUR/USD',desc:'Euro / US Dollar',base:1.08542},
-{name:'GBP/USD',desc:'British Pound / US Dollar',base:1.26320},
-{name:'USD/JPY',desc:'US Dollar / Japanese Yen',base:149.820},
-{name:'AUD/USD',desc:'Australian Dollar / US Dollar',base:0.65430},
-{name:'USD/CAD',desc:'US Dollar / Canadian Dollar',base:1.35210},
-{name:'NZD/USD',desc:'New Zealand Dollar / US Dollar',base:0.60120},
-{name:'USD/CHF',desc:'US Dollar / Swiss Franc',base:0.88340},
-{name:'EUR/GBP',desc:'Euro / British Pound',base:0.85920},
-{name:'USD/NGN',desc:'US Dollar / Nigerian Naira',base:1540.50},
-{name:'USD/ZAR',desc:'US Dollar / South African Rand',base:18.7420}
+{name:'EUR/USD',desc:'Euro / US Dollar',base:1.08542,category:'major'},
+{name:'GBP/USD',desc:'British Pound / US Dollar',base:1.26320,category:'major'},
+{name:'USD/JPY',desc:'US Dollar / Japanese Yen',base:149.820,category:'major'},
+{name:'AUD/USD',desc:'Australian Dollar / US Dollar',base:0.65430,category:'major'},
+{name:'USD/CAD',desc:'US Dollar / Canadian Dollar',base:1.35210,category:'major'},
+{name:'NZD/USD',desc:'New Zealand Dollar / US Dollar',base:0.60120,category:'major'},
+{name:'USD/CHF',desc:'US Dollar / Swiss Franc',base:0.88340,category:'major'},
+{name:'EUR/GBP',desc:'Euro / British Pound',base:0.85920,category:'major'},
+{name:'USD/NGN',desc:'US Dollar / Nigerian Naira',base:1540.50,category:'exotic'},
+{name:'USD/ZAR',desc:'US Dollar / South African Rand',base:18.7420,category:'exotic'},
+{name:'USD/PHP',desc:'US Dollar / Philippine Peso',base:56.240,category:'exotic'},
+{name:'USD/DZD',desc:'US Dollar / Algerian Dinar',base:134.50,category:'exotic'}
 ];
 var currentTimeframeValue='1M';
 var currentTimeframeSeconds=60;
 var currentPair='EUR/USD';
 var currentPairBase=1.08542;
 
-function openPairModal(){renderPairList();document.getElementById('pairOverlay').classList.add('visible');document.getElementById('pairSheet').classList.add('visible')}
+function openPairModal(){renderPairList();document.getElementById('pairSearchInput').value='';document.getElementById('pairOverlay').classList.add('visible');document.getElementById('pairSheet').classList.add('visible')}
 function togglePairModal(show){document.getElementById('pairOverlay').classList.toggle('visible',show);document.getElementById('pairSheet').classList.toggle('visible',show)}
-function renderPairList(){var c=document.getElementById('pairListContainer');if(!c)return;c.innerHTML='';availablePairs.forEach(function(p){var it=document.createElement('div');it.className='pair-list-item'+(p.name===currentPair?' selected':'');it.innerHTML='<div class="pair-icon"><svg viewBox="0 0 24 24"><use href="#icon-currency"/></svg></div><div class="pair-info"><div class="pair-name">'+p.name+'</div><div class="pair-desc">'+p.desc+'</div></div><div class="pair-check"><svg viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>';it.addEventListener('click',function(){selectPair(p.name,p.base);togglePairModal(false)});c.appendChild(it)})}
-function selectPair(name,base){currentPair=name;currentPairBase=base;document.getElementById('currentPairName').textContent=name;lastClose=base;updatePriceDisplay(lastClose,lastClose-0.0001);if(lwChart){lwChart.remove();lwChart=null;candleSeries=null;lineSeries=null;cachedMarkers=[];allCandleData=[];initLWChart()}}
+function filterPairs(){renderPairList()}
+function renderPairList(){
+var c=document.getElementById('pairListContainer');
+if(!c)return;
+var search=(document.getElementById('pairSearchInput').value||'').toLowerCase().trim();
+var filtered=availablePairs.filter(function(p){return p.name.toLowerCase().indexOf(search)!==-1||p.desc.toLowerCase().indexOf(search)!==-1});
+if(filtered.length===0){c.innerHTML='<div class="pair-empty"><div class="pair-empty-icon"><svg viewBox="0 0 24 24"><use href="#icon-search"/></svg></div><h4>No results</h4><p>Try a different search term</p></div>';return}
+var categories=[{key:'major',label:'Major Pairs'},{key:'exotic',label:'Exotic Pairs'}];
+var html='';
+categories.forEach(function(cat){
+var items=filtered.filter(function(p){return p.category===cat.key});
+if(items.length===0)return;
+html+='<div class="pair-category"><div class="pair-category-title">'+cat.label+'</div>';
+items.forEach(function(p){
+var isSelected=p.name===currentPair;
+html+='<div class="pair-item'+(isSelected?' selected':'')+'" data-name="'+p.name+'">';
+html+='<div class="pair-flag '+p.category+'">'+p.name.substring(0,3)+'</div>';
+html+='<div class="pair-info-col"><div class="pair-name-row"><span class="pair-name">'+p.name+'</span><span class="pair-otc-tag">OTC</span></div><div class="pair-desc">'+p.desc+'</div></div>';
+html+='<div class="pair-check"><svg viewBox="0 0 24 24"><use href="#icon-check"/></svg></div>';
+html+='</div>';
+});
+html+='</div>';
+});
+c.innerHTML=html;
+var items=c.querySelectorAll('.pair-item');
+for(var i=0;i<items.length;i++){
+(function(el){
+el.addEventListener('click',function(){
+var nm=el.getAttribute('data-name');
+var pair=availablePairs.find(function(p){return p.name===nm});
+if(pair)selectPair(pair.name,pair.base);
+});
+})(items[i]);
+}
+}
+function selectPair(name,base){currentPair=name;currentPairBase=base;document.getElementById('currentPairName').textContent=name;lastClose=base;updatePriceDisplay(lastClose,lastClose-0.0001);togglePairModal(false);if(lwChart){lwChart.remove();lwChart=null;candleSeries=null;lineSeries=null;cachedMarkers=[];allCandleData=[];initLWChart()}}
 
 function generateCandleData(count){var data=[],now=Math.floor(Date.now()/1000),interval=currentTimeframeSeconds,base=currentPairBase;for(var i=count;i>0;i--){var time=now-i*interval,open=base,change=(Math.random()-0.48)*0.0015,close=open+change,high=Math.max(open,close)+Math.random()*0.0008,low=Math.min(open,close)-Math.random()*0.0008;data.push({time:time,open:+open.toFixed(5),high:+high.toFixed(5),low:+low.toFixed(5),close:+close.toFixed(5)});base=close}lastClose=base;return data}
 
